@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:sewakeun/pages/home.dart';
+import 'package:sewakeun/pages/navigasi.dart';
 import 'package:sewakeun/pages/splashscreen.dart';
 import 'package:sewakeun/pages/lapangan.dart';
 import 'package:sewakeun/pages/pertandingan.dart';
@@ -17,7 +17,7 @@ class MyApp extends StatelessWidget {
       title: 'Sewakeun',
       home: SplashScreenPage(),
       routes: <String, WidgetBuilder>{
-        '/homepage': (BuildContext context) => HomePage(),
+        '/homepage': (BuildContext context) => Navigasi(),
         '/lapangan': (BuildContext context) => LapanganPage(),
         '/pertandingan': (BuildContext context) => PertandinganPage(),
         '/berita': (BuildContext context) => BeritaPage(),
