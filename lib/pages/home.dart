@@ -4,7 +4,6 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 import '../utils/colors.dart';
 import '../utils/screenutil.dart';
-import '../utils/screenutil.dart';
 
 
 class HomePage extends StatefulWidget {
@@ -20,113 +19,163 @@ class _HomePageState extends State<HomePage> {
         title: Text("Home"),
         backgroundColor: TemaApp.greenColor,
       ),
-      body: Column(
+      body: ListView(
         children: <Widget>[
-          Padding(
-            padding: const EdgeInsets.fromLTRB(12.0, 20.0, 12.0, 40.0),
-            child: Row(
-              children: <Widget>[
-                Expanded(
-                    flex: 1,
-                    child: Menu(
-                      icon: FontAwesomeIcons.futbol,
-                      teks: 'Info Lapangan',
-                    )
-                ),
-                SizedBox(width: 10,),
-                Expanded(
-                    flex: 1,
-                    child: Menu(
-                      icon: FontAwesomeIcons.trophy,
-                      teks: 'Pertandingan',
-                    )
-                ),
-                SizedBox(width: 10,),
-                Expanded(
-                    flex: 1,
-                    child: Menu(
-                      icon: FontAwesomeIcons.newspaper,
-                      teks: 'Berita',
-                    )
-                ),
-              ],
-            ),
-          ),
-          Padding(
-            padding: const EdgeInsets.fromLTRB(12.0, 20.0, 12.0, 0),
-            child: Row(
-              children: <Widget>[
-                Container(
-                  width: ScreenUtil().setWidth(1139),
-                  height: 50,
-                  decoration: BoxDecoration(
-                    gradient: LinearGradient(
-                        begin: Alignment.topLeft,
-                        end: Alignment.bottomRight,
-                        colors: <Color>[
-                          Color.fromRGBO(86, 167, 66, 1),
-                          Color.fromRGBO(214, 225, 86, 1)
-                        ]
+          Column(
+            children: <Widget>[
+              Padding(
+                padding: const EdgeInsets.fromLTRB(12.0, 20.0, 12.0, 40.0),
+                child: Row(
+                  children: <Widget>[
+                    Expanded(
+                        flex: 1,
+                        child: Menu(
+                          icon: FontAwesomeIcons.futbol,
+                          teks: 'Info Lapangan',
+                          navigasi: '/lapangan',
+                        )
                     ),
-                    borderRadius: BorderRadius.only(
-                        topLeft: Radius.circular(10),
-                        topRight: Radius.circular(10)
+                    SizedBox(width: 10,),
+                    Expanded(
+                        flex: 1,
+                        child: Menu(
+                          icon: FontAwesomeIcons.trophy,
+                          teks: 'Pertandingan',
+                          navigasi: '/pertandingan',
+                        )
                     ),
-                  ),
-                  child: Center(
-                    child: Text('Berita',style: TextStyle(fontSize: 20,color: Colors.white, fontWeight: FontWeight.bold ),),
-                  ),
+                    SizedBox(width: 10,),
+                    Expanded(
+                        flex: 1,
+                        child: Menu(
+                          icon: FontAwesomeIcons.newspaper,
+                          teks: 'Berita',
+                          navigasi: '/berita',
+                        )
+                    ),
+                  ],
                 ),
-              ],
-            ),
-          ),
-          Padding(
-            padding: const EdgeInsets.fromLTRB(12.0, 0, 12.0, 40.0),
-            child: Container(
-              height: 200,
-              child: ListView(
-                scrollDirection: Axis.horizontal,
-                children: <Widget>[
-                  Row(
+              ),
+              Padding(
+                padding: const EdgeInsets.fromLTRB(12.0, 20.0, 12.0, 0),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: <Widget>[
+                   Text('Berita',style: TextStyle(fontSize: ScreenUtil().setSp(40),fontWeight: FontWeight.bold),),
+                    Icon(Icons.navigate_next)
+                  ],
+                ),
+              ),
+              Padding(
+                padding: const EdgeInsets.fromLTRB(12.0, 0, 12.0, 40.0),
+                child: Container(
+                  height: 200,
+                  child: ListView(
+                    scrollDirection: Axis.horizontal,
                     children: <Widget>[
-                      BeritaSlider(
-                        teks: 'Berita naon ieu!?',
-                        img: './assets/images/berita.png',
-                      ),
-                      SizedBox(width: 10,),
-                      BeritaSlider(
-                        teks: 'Ini berita?',
-                        img: './assets/images/berita.png',
-                      ),
-                      SizedBox(width: 10,),
-                      BeritaSlider(
-                        teks: 'Berita cuyy',
-                        img: './assets/images/berita.png',
+                      Row(
+                        children: <Widget>[
+                         InkWell(
+                           onTap:(){
+
+                           },
+                           child: Card(
+                             child: Column(
+                               crossAxisAlignment: CrossAxisAlignment.start,
+                               children: <Widget>[
+                                 Image(
+                                   image: AssetImage('./assets/images/berita.png'),
+                                 ),
+                                 Row(
+                                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                   children: <Widget>[
+                                     Text('31-01-2020'),
+                                     Text('Berita Harian')
+                                   ],
+                                 )
+                               ],
+                             ),
+                           ),
+                         ),
+                          Card(
+                            child: Column(
+                              children: <Widget>[
+                                Image(
+                                  image: AssetImage('./assets/images/berita.png'),
+                                ),
+                                Text('Hai')
+                              ],
+                            ),
+                          )
+                        ],
                       ),
                     ],
                   ),
-                ],
+                ),
               ),
-            ),
-          )
+              Padding(
+                padding: const EdgeInsets.fromLTRB(12.0, 20.0, 12.0, 0),
+                child: Column(
+                  children: <Widget>[
+                    Container(
+                      height: 200,
+                      child: Card(
+                        child: Column(
+                          children: <Widget>[
+                            Row(
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              children: <Widget>[
+                                Container(
+                                  height: 40,
+                                  width: ScreenUtil().setWidth(900),
+                                  decoration: BoxDecoration(
+                                    borderRadius: BorderRadius.only(bottomRight: Radius.circular(10),bottomLeft: Radius.circular(10)),
+                                    color: TemaApp.greenColor,
+                                  ),
+                                  child: Center(
+                                    child: Text('Zone 73 Match(U16) 2020',
+                                    style: TextStyle(
+                                      color: Colors.white,
+                                      fontSize: ScreenUtil().setSp(45),
+                                      fontWeight: FontWeight.bold,
+                                    )
+                                    ),
+                                  ),
+                                )
+                              ],
+                            ),
+                            Image(
+                              image: AssetImage('./assets/images/vamos.png'),
+                            )
+                          ],
+                        ),
+                      ),
+                    ),
 
+                  ],
+                ),
+              )
+            ],
+          ),
         ],
       ),
     );
   }
 }
 
+//widget buat bikin menu yang kotak kotak
 class Menu extends StatelessWidget {
 
-  Menu({this.icon,this.teks});
+  Menu({this.icon,this.teks, this.navigasi});
   final IconData icon;
   final String teks;
+  final String navigasi;
 
   @override
   Widget build(BuildContext context) {
     return InkWell(
       onTap: () {
-        Navigator.of(context).pushNamed('/lapangan');
+        Navigator.of(context).pushNamed(navigasi);
       },
       child: Container(
         height: 100,
@@ -146,40 +195,6 @@ class Menu extends StatelessWidget {
   }
 }
 
-class BeritaSlider extends StatelessWidget {
-  BeritaSlider({this.teks,this.img});
-
-  final String teks;
-  final String img;
-
-  @override
-  Widget build(BuildContext context) {
-    return Column(
-      children: <Widget>[
-        Container(
-          height: 150,
-          width: ScreenUtil().setWidth(1139),
-          child: Image(
-            image: AssetImage(img),
-            width: ScreenUtil().setWidth(1139),
-            fit: BoxFit.fill,
-          ),
-        ),
-        Container(
-          width: ScreenUtil().setWidth(1139),
-          height: 50,
-          decoration: BoxDecoration(
-              color: TemaApp.greenColor,
-              borderRadius: BorderRadius.only(bottomLeft: Radius.circular(10.0),bottomRight: Radius.circular(10.0))
-          ),
-          child: Center(
-            child: Text(teks,style: TextStyle(fontSize: ScreenUtil().setSp(50),color: Colors.white),),
-          ),
-        )
-      ],
-    );
-  }
-}
 
 
 
