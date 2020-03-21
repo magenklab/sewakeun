@@ -40,7 +40,6 @@ class BeritaPage extends StatelessWidget {
                         child: Text("Sepakbola"),
                       ),
                     )
-                    
                   ]),
             ),
             body: TabBarView(children: [
@@ -54,7 +53,4 @@ class BeritaPage extends StatelessWidget {
           )),
     );
   }
-
-
 }
-
