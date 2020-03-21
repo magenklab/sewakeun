@@ -1,55 +1,60 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
+import 'package:sewakeun/utils/colors.dart';
 
-
-class BeritaPage extends StatefulWidget {
-  @override
-  _BeritaPageState createState() => _BeritaPageState();
-}
-
-class _BeritaPageState extends State<BeritaPage> {
+class BeritaPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-
-    return DefaultTabController(
-      length: 3,
-      initialIndex: 0,
-      child: Scaffold(
-        appBar: AppBar(
-          flexibleSpace: FlexibleSpaceBar(
-            centerTitle: true,
-            title: Center(
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: <Widget>[
-                  Column(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: <Widget>[
-                      Text(
-                        'Futsal Indonesia',
-                        style: TextStyle(color: Colors.white, fontSize: 20.0),
-                      ),
-
-                    ],
-                  ),
-                ],
-              ),
-            ),
-          ),
-          bottom: PreferredSize(
-            preferredSize: Size.square(80.0),
-            child: TabBar(
-              tabs: [
-                Text("Terbaru", style: TextStyle(color: Colors.white, fontSize: 15.0), ),
-                Text("Jadwal", style: TextStyle(color: Colors.white, fontSize: 15.0),),
-                Text("Klasemen", style: TextStyle(color: Colors.white, fontSize: 15.0),),
-
-              ],
-            ),
-          ),
-        ),
+    return MaterialApp(
+      title: "MagenkLab",
+      theme: ThemeData(
+        primaryColor: Colors.green,
       ),
+      home: DefaultTabController(
+          length: 2,
+          child: Scaffold(
+            appBar: AppBar(
+              elevation: 0,
+              centerTitle: true,
+              title: Text("FUTSAL INDONESIA"),
+              backgroundColor: Colors.green,
+              bottom: TabBar(
+                  labelColor: Colors.green,
+                  unselectedLabelColor: Colors.white,
+                  indicatorSize: TabBarIndicatorSize.label,
+                  indicator: BoxDecoration(
+                      borderRadius: BorderRadius.only(
+                          topLeft: Radius.circular(20),
+                          topRight: Radius.circular(20)),
+                      color: Colors.white),
+                  tabs: [
+                    Tab(
+                      child: Align(
+                        alignment: Alignment.center,
+                        child: Text("Futsal"),
+                      ),
+                    ),
+                    Tab(
+                      child: Align(
+                        alignment: Alignment.center,
+                        child: Text("Sepakbola"),
+                      ),
+                    )
+                    
+                  ]),
+            ),
+            body: TabBarView(children: [
+              Container(
+                child: Text("Coba"),
+              ),
+              Container(
+                child: Text("Coba"),
+              )
+            ]),
+          )),
     );
   }
 
+
 }
+
