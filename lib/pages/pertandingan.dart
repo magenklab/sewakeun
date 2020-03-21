@@ -14,7 +14,23 @@ class _PertandinganPageState extends State<PertandinganPage> {
         title: Text("Pertandingan"),
         backgroundColor: TemaApp.greenColor,
       ),
-      body: Center(child: Text("Pertandingan")),
+      body: Column(
+        children: <Widget>[
+          Padding(
+            padding: const EdgeInsets.fromLTRB(12.0,20.0,12.0,20.0),
+            child: TextField(
+              decoration: InputDecoration(
+                labelText: 'Cari',
+                hintText: 'Nama Pertandingan',
+                suffixIcon: Icon(Icons.search),
+                border: OutlineInputBorder(
+                  borderRadius: BorderRadius.all(Radius.circular(10))
+                ),
+              ),
+            ),
+          ),
+        ],
+      )
     );
   }
 }

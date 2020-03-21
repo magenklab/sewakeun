@@ -144,9 +144,69 @@ class _HomePageState extends State<HomePage> {
                                 )
                               ],
                             ),
-                            Image(
-                              image: AssetImage('./assets/images/vamos.png'),
-                            )
+                            Row(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: <Widget>[
+                                Padding(
+                                  padding: const EdgeInsets.fromLTRB(20.0, 12.0, 20.0,0),
+                                  child: Column(
+                                    children: <Widget>[
+                                      Image(
+                                        image: AssetImage('./assets/images/vamos.png'),
+                                        width: 70,
+                                        fit: BoxFit.fitWidth,
+                                      ),
+                                      Text('Vamos',
+                                      style: TextStyle(
+                                        fontSize: ScreenUtil().setSp(40)
+                                        ),
+                                      ),
+                                    ],
+                                  ),
+                                ),
+                                Column(
+                                  mainAxisAlignment: MainAxisAlignment.spaceAround,
+                                  crossAxisAlignment: CrossAxisAlignment.center,
+                                  children: <Widget>[
+                                    Padding(
+                                      padding: EdgeInsets.all(25.0),
+                                      child: Container(
+                                        width: 50,
+                                        height: 50,
+                                        decoration: BoxDecoration(
+                                          borderRadius: BorderRadius.circular(70),
+                                          color: TemaApp.greenColor,
+                                        ),
+                                        child: Center(child: Text('VS',
+                                        style:TextStyle(
+                                          fontSize: ScreenUtil().setSp(60),
+                                          fontWeight: FontWeight.bold,
+                                          color: Colors.white,
+                                        ),
+                                        )),
+                                      ),
+                                    )
+                                  ],
+                                ),
+                                Padding(
+                                  padding: const EdgeInsets.fromLTRB(20.0, 12.0, 20.0,0),
+                                  child: Column(
+                                    children: <Widget>[
+                                      Image(
+                                        image: AssetImage('./assets/images/vamos.png'),
+                                        width: 70,
+                                        fit: BoxFit.fitWidth,
+                                      ),
+                                      Text('Vamos',
+                                        style: TextStyle(
+                                            fontSize: ScreenUtil().setSp(40)
+                                        ),
+                                      ),
+                                    ],
+                                  ),
+                                ),
+                              ],
+                            ),
                           ],
                         ),
                       ),
