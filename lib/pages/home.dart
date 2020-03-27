@@ -115,105 +115,35 @@ class _HomePageState extends State<HomePage> {
               ),
               Padding(
                 padding: const EdgeInsets.fromLTRB(12.0, 20.0, 12.0, 0),
-                child: Column(
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: <Widget>[
-                    Container(
-                      height: 200,
-                      child: Card(
-                        child: Column(
-                          children: <Widget>[
-                            Row(
-                              mainAxisAlignment: MainAxisAlignment.center,
-                              children: <Widget>[
-                                Container(
-                                  height: 40,
-                                  width: ScreenUtil().setWidth(900),
-                                  decoration: BoxDecoration(
-                                    borderRadius: BorderRadius.only(bottomRight: Radius.circular(10),bottomLeft: Radius.circular(10)),
-                                    color: TemaApp.greenColor,
-                                  ),
-                                  child: Center(
-                                    child: Text('Zone 73 Match(U16) 2020',
-                                    style: TextStyle(
-                                      color: Colors.white,
-                                      fontSize: ScreenUtil().setSp(45),
-                                      fontWeight: FontWeight.bold,
-                                    )
-                                    ),
-                                  ),
-                                )
-                              ],
-                            ),
-                            Row(
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: <Widget>[
-                                Padding(
-                                  padding: const EdgeInsets.fromLTRB(20.0, 12.0, 20.0,0),
-                                  child: Column(
-                                    children: <Widget>[
-                                      Image(
-                                        image: AssetImage('./assets/images/vamos.png'),
-                                        width: 70,
-                                        fit: BoxFit.fitWidth,
-                                      ),
-                                      Text('Vamos',
-                                      style: TextStyle(
-                                        fontSize: ScreenUtil().setSp(40)
-                                        ),
-                                      ),
-                                    ],
-                                  ),
-                                ),
-                                Column(
-                                  mainAxisAlignment: MainAxisAlignment.spaceAround,
-                                  crossAxisAlignment: CrossAxisAlignment.center,
-                                  children: <Widget>[
-                                    Padding(
-                                      padding: EdgeInsets.all(25.0),
-                                      child: Container(
-                                        width: 50,
-                                        height: 50,
-                                        decoration: BoxDecoration(
-                                          borderRadius: BorderRadius.circular(70),
-                                          color: TemaApp.greenColor,
-                                        ),
-                                        child: Center(child: Text('VS',
-                                        style:TextStyle(
-                                          fontSize: ScreenUtil().setSp(60),
-                                          fontWeight: FontWeight.bold,
-                                          color: Colors.white,
-                                        ),
-                                        )),
-                                      ),
-                                    )
-                                  ],
-                                ),
-                                Padding(
-                                  padding: const EdgeInsets.fromLTRB(20.0, 12.0, 20.0,0),
-                                  child: Column(
-                                    children: <Widget>[
-                                      Image(
-                                        image: AssetImage('./assets/images/vamos.png'),
-                                        width: 70,
-                                        fit: BoxFit.fitWidth,
-                                      ),
-                                      Text('Vamos',
-                                        style: TextStyle(
-                                            fontSize: ScreenUtil().setSp(40)
-                                        ),
-                                      ),
-                                    ],
-                                  ),
-                                ),
-                              ],
-                            ),
-                          ],
-                        ),
-                      ),
-                    ),
-
+                    Text('Pertandingan Mendatang',style: TextStyle(fontSize: ScreenUtil().setSp(40),fontWeight: FontWeight.bold),),
+                    Icon(Icons.navigate_next)
                   ],
                 ),
+              ),
+              Padding(
+                padding: const EdgeInsets.fromLTRB(12.0, 20.0, 12.0, 0),
+                child: Column(
+                  children: <Widget>[
+                    Pertandingan(
+                      match: 'Zone 73 Match(U16) 2020',
+                      logo_tim_1: './assets/images/vamos.png',
+                      nama_tim_1: 'Vamos',
+                      logo_tim_2: './assets/images/vamos.png',
+                      nama_tim_2: 'Vamos',
+                    ),
+                    SizedBox(height: 10,),
+                    Pertandingan(
+                      match: 'Zone 73 Match(U16) 2020',
+                      logo_tim_1: './assets/images/vamos.png',
+                      nama_tim_1: 'Vamos',
+                      logo_tim_2: './assets/images/vamos.png',
+                      nama_tim_2: 'Vamos',
+                    )
+                  ],
+                )
               )
             ],
           ),
@@ -254,6 +184,95 @@ class Menu extends StatelessWidget {
     );
   }
 }
+
+
+class Pertandingan extends StatelessWidget {
+  Pertandingan({this.match,this.logo_tim_1,this.nama_tim_1,this.logo_tim_2,this.nama_tim_2});
+  final String match;
+  final String logo_tim_1;
+  final String nama_tim_1;
+  final String logo_tim_2;
+  final String nama_tim_2;
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      width: ScreenUtil.screenWidth,
+      height: ScreenUtil.screenHeight/100*25,
+      child: Card(
+        child: Column(
+          children: <Widget>[
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: <Widget>[
+                Container(
+                  width: ScreenUtil.screenWidth/100*70,
+                  height: ScreenUtil.screenHeight/100*5,
+                  decoration: BoxDecoration(
+                      color: TemaApp.greenColor,
+                      borderRadius: BorderRadius.only(bottomLeft: Radius.circular(10),bottomRight: Radius.circular(10))
+                  ),
+                  child: Center(
+                    child: Text(match,
+                      style: TextStyle(
+                          color: Colors.white,
+                          fontWeight: FontWeight.bold,
+                          fontSize: ScreenUtil().setSp(50)
+                      ),
+                    ),
+                  ),
+                ),
+              ],
+            ),
+            SizedBox(height: ScreenUtil.screenHeight/100*3),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceAround,
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: <Widget>[
+                Column(
+                  children: <Widget>[
+                    Image(
+                      image: AssetImage(logo_tim_1),
+                      width: 70,
+                      fit: BoxFit.fill,
+                    ),
+                    Text(nama_tim_1)
+                  ],
+                ),
+                Column(
+                  children: <Widget>[
+                    SizedBox(height: ScreenUtil.screenHeight/100*1,),
+                    Container(
+                      width: 50,
+                      height: 50,
+                      decoration: BoxDecoration(
+                          color: TemaApp.greenColor,
+                          borderRadius: BorderRadius.circular(50)
+                      ),
+                      child: Center(
+                        child: Text('VS', style: TextStyle(fontSize: ScreenUtil().setSp(50), fontWeight: FontWeight.bold,color: Colors.white),),
+                      ),
+                    ),
+                  ],
+                ),
+                Column(
+                  children: <Widget>[
+                    Image(
+                      image: AssetImage(logo_tim_2),
+                      width: 70,
+                      fit: BoxFit.fill,
+                    ),
+                    Text(nama_tim_2)
+                  ],
+                ),
+              ],
+            )
+          ],
+        ),
+      ),
+    );;
+  }
+}
+
 
 
 
