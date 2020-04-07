@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "547778392348",
+    "firebase_url": "https://sewakeun-e8db6.firebaseio.com",
+    "project_id": "sewakeun-e8db6",
+    "storage_bucket": "sewakeun-e8db6.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:547778392348:android:dccd42f4f3b8360dac0ad9",
+        "android_client_info": {
+          "package_name": "com.melektech.sewakeun"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "547778392348-fkfol4j7js0vmkii4g0jf6rhcfb87bu3.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.melektech.sewakeun",
+            "certificate_hash": "3360b5b6c58c31d7e9d10ea821c3e8b27f341d38"
+          }
+        },
+        {
+          "client_id": "547778392348-pnjpi0a731c5b5ql5eudn5skjr89dtsb.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAanVrYY0b6lIu3PBHsBPuoueNxhpXHrKw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "547778392348-pnjpi0a731c5b5ql5eudn5skjr89dtsb.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
