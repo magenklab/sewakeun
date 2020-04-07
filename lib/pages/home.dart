@@ -127,20 +127,29 @@ class _HomePageState extends State<HomePage> {
                 padding: const EdgeInsets.fromLTRB(12.0, 20.0, 12.0, 0),
                 child: Column(
                   children: <Widget>[
-                    Pertandingan(
-                      match: 'Zone 73 Match(U16) 2020',
-                      logo_tim_1: './assets/images/vamos.png',
-                      nama_tim_1: 'Vamos',
-                      logo_tim_2: './assets/images/vamos.png',
-                      nama_tim_2: 'Vamos',
+                    GestureDetector(
+                      onTap: (){
+                      },
+                      child: Pertandingan(
+                        match: 'Zone 73 Match(U16) 2020',
+                        logo_tim_1: './assets/images/vamos.png',
+                        nama_tim_1: 'Vamos',
+                        logo_tim_2: './assets/images/leo.png',
+                        nama_tim_2: 'Leo',
+                      ),
                     ),
                     SizedBox(height: 10,),
-                    Pertandingan(
-                      match: 'Zone 73 Match(U16) 2020',
-                      logo_tim_1: './assets/images/vamos.png',
-                      nama_tim_1: 'Vamos',
-                      logo_tim_2: './assets/images/vamos.png',
-                      nama_tim_2: 'Vamos',
+                    GestureDetector(
+                      onTap: (){
+
+                      },
+                      child: Pertandingan(
+                        match: 'Zone 73 Match(U16) 2020',
+                        logo_tim_1: './assets/images/vamos.png',
+                        nama_tim_1: 'persib',
+                        logo_tim_2: './assets/images/leo.png',
+                        nama_tim_2: 'persija',
+                      ),
                     )
                   ],
                 )
@@ -152,7 +161,8 @@ class _HomePageState extends State<HomePage> {
     );
   }
 }
-
+//-----------------------------------------------------------------------------
+//Material
 //widget buat bikin menu yang kotak kotak
 class Menu extends StatelessWidget {
 
@@ -185,7 +195,7 @@ class Menu extends StatelessWidget {
   }
 }
 
-
+//widget perrtandingan
 class Pertandingan extends StatelessWidget {
   Pertandingan({this.match,this.logo_tim_1,this.nama_tim_1,this.logo_tim_2,this.nama_tim_2});
   final String match;
