@@ -13,7 +13,7 @@ class _SplashScreenPageState extends State<SplashScreenPage> {
   void initState() {
     super.initState();
     Timer(Duration(seconds: 5),
-        () => Navigator.of(context).pushReplacementNamed('/homepage'));
+        () => Navigator.of(context).pushReplacementNamed('/auth'));
   }
 
   @override

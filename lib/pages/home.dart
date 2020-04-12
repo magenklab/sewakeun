@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:sewakeun/utils/colors.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:carousel_slider/carousel_slider.dart';
 import '../utils/colors.dart';
 import '../utils/screenutil.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
 
 
 class HomePage extends StatefulWidget {
@@ -123,7 +123,7 @@ class _HomePageState extends State<HomePage> {
                   ],
                 ),
               ),
-              Padding(
+              /*Padding(
                 padding: const EdgeInsets.fromLTRB(12.0, 20.0, 12.0, 0),
                 child: Column(
                   children: <Widget>[
@@ -153,6 +153,22 @@ class _HomePageState extends State<HomePage> {
                     )
                   ],
                 )
+              ),*/
+              Padding(
+                padding: const EdgeInsets.fromLTRB(12.0, 20.0, 12.0, 0),
+                child: Container(
+                  height: 200,
+                  child: StreamBuilder(
+                    stream: Firestore.instance.collection("pertandingan").snapshots(),
+                    builder: (BuildContext context, AsyncSnapshot<QuerySnapshot> snapshot){
+                      return task(
+                        document: snapshot.data.documents,
+                        logo_tim_1: './assets/images/vamos.png',
+                        logo_tim_2: './assets/images/vamos.png',
+                      );
+                    },
+                  ),
+                ),
               )
             ],
           ),
@@ -331,5 +347,100 @@ class _CarouselState extends State<Carousel> {
     );
   }
 }*/
+
+class task extends StatelessWidget {
+  task({this.document,this.logo_tim_1,this.logo_tim_2});
+  final List<DocumentSnapshot> document;
+  final String logo_tim_1;
+  final String logo_tim_2;
+  @override
+  Widget build(BuildContext context) {
+    return ListView.builder(
+      scrollDirection: Axis.horizontal,
+        itemCount: document.length,
+          itemBuilder: (BuildContext context, int i){
+            String title = document[i].data['title'].toString();
+            String tim1 = document[i].data['tim1'].toString();
+            String tim2 = document[i].data['tim2'].toString();
+            return Container(
+              width: ScreenUtil.screenWidth,
+              height: ScreenUtil.screenHeight/100*25,
+              child: Card(
+                child: Column(
+                  children: <Widget>[
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: <Widget>[
+                        Container(
+                          width: ScreenUtil.screenWidth/100*70,
+                          height: ScreenUtil.screenHeight/100*5,
+                          decoration: BoxDecoration(
+                              color: TemaApp.greenColor,
+                              borderRadius: BorderRadius.only(bottomLeft: Radius.circular(10),bottomRight: Radius.circular(10))
+                          ),
+                          child: Center(
+                            child: Text(title,
+                              style: TextStyle(
+                                  color: Colors.white,
+                                  fontWeight: FontWeight.bold,
+                                  fontSize: ScreenUtil().setSp(50)
+                              ),
+                            ),
+                          ),
+                        ),
+                      ],
+                    ),
+                    SizedBox(height: ScreenUtil.screenHeight/100*3),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceAround,
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: <Widget>[
+                        Column(
+                          children: <Widget>[
+                            Image(
+                              image: AssetImage(logo_tim_1),
+                              width: 70,
+                              fit: BoxFit.fill,
+                            ),
+                            Text(tim1)
+                          ],
+                        ),
+                        Column(
+                          children: <Widget>[
+                            SizedBox(height: ScreenUtil.screenHeight/100*1,),
+                            Container(
+                              width: 50,
+                              height: 50,
+                              decoration: BoxDecoration(
+                                  color: TemaApp.greenColor,
+                                  borderRadius: BorderRadius.circular(50)
+                              ),
+                              child: Center(
+                                child: Text('VS', style: TextStyle(fontSize: ScreenUtil().setSp(50), fontWeight: FontWeight.bold,color: Colors.white),),
+                              ),
+                            ),
+                          ],
+                        ),
+                        Column(
+                          children: <Widget>[
+                            Image(
+                              image: AssetImage(logo_tim_2),
+                              width: 70,
+                              fit: BoxFit.fill,
+                            ),
+                            Text(tim2)
+                          ],
+                        ),
+                      ],
+                    )
+                  ],
+                ),
+              ),
+            );
+          }
+      );
+
+  }
+}
 
 
