@@ -1,5 +1,5 @@
 import 'package:sewakeun/shared/InputDecoration.dart';
-import 'package:sewakeun/authentcation//auth_service.dart';
+import 'package:sewakeun/authentication//auth_service.dart';
 import 'package:flutter/material.dart';
 import 'package:sewakeun/shared/loading.dart';
 import 'package:sewakeun/utils/colors.dart';

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:sewakeun/authentcation/auth_check.dart';
-import 'package:sewakeun/authentcation/auth_service.dart';
+import 'package:sewakeun/authentication/auth_check.dart';
+import 'package:sewakeun/authentication/auth_service.dart';
 import 'package:sewakeun/pages/auth.dart';
 import 'package:sewakeun/pages/edit_profil.dart';
 import 'package:sewakeun/pages/navigasi.dart';
