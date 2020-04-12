@@ -161,7 +161,7 @@ class _HomePageState extends State<HomePage> {
                   child: StreamBuilder(
                     stream: Firestore.instance.collection("pertandingan").snapshots(),
                     builder: (BuildContext context, AsyncSnapshot<QuerySnapshot> snapshot){
-                      return task(
+                      return Pertandingan(
                         document: snapshot.data.documents,
                         logo_tim_1: './assets/images/vamos.png',
                         logo_tim_2: './assets/images/vamos.png',
@@ -212,144 +212,9 @@ class Menu extends StatelessWidget {
 }
 
 //widget perrtandingan
+
 class Pertandingan extends StatelessWidget {
-  Pertandingan({this.match,this.logo_tim_1,this.nama_tim_1,this.logo_tim_2,this.nama_tim_2});
-  final String match;
-  final String logo_tim_1;
-  final String nama_tim_1;
-  final String logo_tim_2;
-  final String nama_tim_2;
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      width: ScreenUtil.screenWidth,
-      height: ScreenUtil.screenHeight/100*25,
-      child: Card(
-        child: Column(
-          children: <Widget>[
-            Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: <Widget>[
-                Container(
-                  width: ScreenUtil.screenWidth/100*70,
-                  height: ScreenUtil.screenHeight/100*5,
-                  decoration: BoxDecoration(
-                      color: TemaApp.greenColor,
-                      borderRadius: BorderRadius.only(bottomLeft: Radius.circular(10),bottomRight: Radius.circular(10))
-                  ),
-                  child: Center(
-                    child: Text(match,
-                      style: TextStyle(
-                          color: Colors.white,
-                          fontWeight: FontWeight.bold,
-                          fontSize: ScreenUtil().setSp(50)
-                      ),
-                    ),
-                  ),
-                ),
-              ],
-            ),
-            SizedBox(height: ScreenUtil.screenHeight/100*3),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceAround,
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: <Widget>[
-                Column(
-                  children: <Widget>[
-                    Image(
-                      image: AssetImage(logo_tim_1),
-                      width: 70,
-                      fit: BoxFit.fill,
-                    ),
-                    Text(nama_tim_1)
-                  ],
-                ),
-                Column(
-                  children: <Widget>[
-                    SizedBox(height: ScreenUtil.screenHeight/100*1,),
-                    Container(
-                      width: 50,
-                      height: 50,
-                      decoration: BoxDecoration(
-                          color: TemaApp.greenColor,
-                          borderRadius: BorderRadius.circular(50)
-                      ),
-                      child: Center(
-                        child: Text('VS', style: TextStyle(fontSize: ScreenUtil().setSp(50), fontWeight: FontWeight.bold,color: Colors.white),),
-                      ),
-                    ),
-                  ],
-                ),
-                Column(
-                  children: <Widget>[
-                    Image(
-                      image: AssetImage(logo_tim_2),
-                      width: 70,
-                      fit: BoxFit.fill,
-                    ),
-                    Text(nama_tim_2)
-                  ],
-                ),
-              ],
-            )
-          ],
-        ),
-      ),
-    );;
-  }
-}
-
-
-
-
-
-
-/*
-class Carousel extends StatefulWidget {
-  @override
-  _CarouselState createState() => _CarouselState();
-}
-
-class _CarouselState extends State<Carousel> {
-
-  int _current = 0;
-  List imgList = [
-    "./assets/images/berita.png",
-    "./assets/images/berita.png",
-    "./assets/images/berita.png",
-    "./assets/images/berita.png",
-    "./assets/images/berita.png",
-  ];
-
-  @override
-  Widget build(BuildContext context) {
-    return CarouselSlider(
-      height: 200,
-      initialPage: 0,
-      onPageChanged: (index){
-        setState(() {
-          _current = index;
-        });
-      },
-      items: imgList.map((imgUrl){
-        return Builder(
-          builder: (BuildContext context){
-            return Container(
-              child: Image(
-                image: AssetImage(imgUrl),
-                fit: BoxFit.fill,
-              ),
-
-            );
-          },
-        );
-      },).toList(),
-    );
-  }
-}*/
-
-class task extends StatelessWidget {
-  task({this.document,this.logo_tim_1,this.logo_tim_2});
+  Pertandingan({this.document,this.logo_tim_1,this.logo_tim_2});
   final List<DocumentSnapshot> document;
   final String logo_tim_1;
   final String logo_tim_2;

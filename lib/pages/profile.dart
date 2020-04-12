@@ -1,7 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:sewakeun/utils/colors.dart';
-import 'package:sewakeun/utils/screenutil.dart';
 import 'package:sewakeun/utils/layout.dart';
 import 'package:sewakeun/authentication/auth_service.dart';
 

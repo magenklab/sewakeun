@@ -2,6 +2,7 @@ import 'package:sewakeun/shared/InputDecoration.dart';
 import 'package:sewakeun/authentication//auth_service.dart';
 import 'package:flutter/material.dart';
 import 'package:sewakeun/shared/loading.dart';
+import 'package:sewakeun/utils/colors.dart';
 
 
 class Register extends StatefulWidget {
@@ -24,9 +25,9 @@ class _RegisterState extends State<Register> {
   @override
   Widget build(BuildContext context) {
     return loading ? Loading() : Scaffold(
-      backgroundColor: Colors.grey[800],
+      backgroundColor: TemaApp.greenYoungColor,
       appBar: AppBar(
-        backgroundColor: Colors.grey[900],
+        backgroundColor: TemaApp.greenColor,
         elevation: 0.0,
         title: Text('Sign Up'),
         actions: <Widget>[
@@ -38,7 +39,7 @@ class _RegisterState extends State<Register> {
             label: Text('Sign In', style: TextStyle(color: Colors.white),),
           ),
         ],
-        centerTitle: true,
+        centerTitle: false,
       ),
       body: Center(
         child: Container(
